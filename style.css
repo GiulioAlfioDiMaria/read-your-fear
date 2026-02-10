@@ -1,0 +1,428 @@
+/* 
+ * READ YOUR FEAR - Global Styles
+ * Design System & Layout
+ */
+
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Amarante&family=Baskervville:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+    /* Color Palette */
+    --color-bg: #f9f9f9;
+    --color-text: #1a1a1a;
+    --color-accent: #8D1414;
+    --color-section-alt: #d9d9d9;
+    --color-white: #ffffff;
+
+    /* Typography */
+    --font-heading: 'Amarante', serif;
+    --font-body: 'Baskervville', serif;
+
+    /* Spacing - Increased for larger text */
+    --spacing-xs: 15px;
+    --spacing-sm: 30px;
+    --spacing-md: 60px;
+    --spacing-lg: 100px;
+    --spacing-xl: 140px;
+
+    /* Layout */
+    --container-width: 1200px;
+    --header-height: 100px;
+    /* Increased header height */
+}
+
+/* 1. Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 24px;
+    /* Requested Body Size */
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    /* Requested Line Height */
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.3;
+    /* Requested Line Height */
+}
+
+h1,
+h2,
+h3 {
+    font-size: 48px;
+    /* Requested Heading Size */
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* 2. Utility Classes */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.section-padding {
+    padding: var(--spacing-lg) 0;
+}
+
+.bg-alt {
+    background-color: var(--color-section-alt);
+}
+
+/* 3. Components */
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    padding: 12px 40px 12px 25px;
+    /* Unbalanced padding for asymmetric shape */
+    border-radius: 0 50px 50px 0;
+    /* Flat left, Rounded right */
+    font-family: var(--font-body);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    /* Relative to 24px base, slightly larger */
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--color-text);
+    color: var(--color-white);
+    transform: translateY(-2px);
+}
+
+/* Gothic Arch Images */
+.gothic-img-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 200px 200px 0 0;
+    transition: filter 0.3s ease;
+}
+
+.gothic-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gothic-img-container:hover img {
+    transform: scale(1.05);
+}
+
+.gothic-img-container:hover {
+    filter: brightness(0.8);
+}
+
+
+/* 4. Layout Sections */
+
+/* Header */
+header {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    height: var(--header-height);
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent white */
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    border-radius: 0 50px 50px 0;
+    /* Flat left, Rounded right */
+    padding: 0;
+    /* Constraints handled by inner or width */
+}
+
+.header-inner {
+    display: flex;
+    justify-content: flex-start;
+    /* Align content to the left */
+    gap: 400px;
+    /* Gap between logo and nav */
+    align-items: center;
+    width: 100%;
+    padding: 0 40px;
+    /* Padding to keep content off edges of the pill */
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    color: var(--color-accent);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+nav a {
+    font-family: var(--font-heading);
+    color: var(--color-accent);
+    font-size: 24px;
+    /* Exact size requested */
+}
+
+nav a:hover {
+    color: var(--color-text);
+}
+
+/* Hero Section */
+.hero {
+    height: 90vh;
+    /* Increased height */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://placehold.co/1920x1080/2a1a1a/FFF?text=Atmospheric+Books+Original+Image') no-repeat center center/cover;
+    display: flex;
+    align-items: flex-end;
+    /* Align content to bottom */
+    justify-content: flex-start;
+    /* Align content to left */
+    padding-bottom: 80px;
+    /* Spacing from bottom */
+    text-align: left;
+    /* Ensure text is left-aligned */
+    color: var(--color-white);
+    margin-top: 0 !important;
+    /* Remove white gap, let image go to top */
+}
+
+.hero-content {
+    text-align: left;
+    margin-left: 0;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    /* Enforce 48px (which is 2rem relative if base is 24, but user wants 48px exactly for H1, H2, H3) - wait, root is 24px. 3rem = 72px. User asked for exactly 48px. 48px / 24px = 2rem. */
+    font-size: 48px;
+    color: var(--color-white);
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-size: 24px;
+    max-width: 800px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Intro Section */
+.intro {
+    text-align: center;
+    max-width: 1000px;
+    /* Wider to accommodate text */
+    margin: 0 auto;
+    padding: var(--spacing-xl) 0;
+}
+
+.intro h2 {
+    font-size: 48px;
+}
+
+.intro p {
+    font-size: 24px;
+    color: #555;
+    max-width: 750px;
+    /* Narrower for better readability */
+    margin-left: auto;
+    /* Center horizontally */
+    margin-right: auto;
+}
+
+/* Grid System */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    /* Increased Gap */
+    margin-top: var(--spacing-md);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+/* Generi Section (Grid of Arches) */
+.generi-card {
+    text-align: center;
+}
+
+.generi-card .gothic-img-container {
+    height: 400px;
+    /* Uniform height */
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Curiosità Section (Split) */
+.curiosita-text {
+    padding-right: var(--spacing-md);
+}
+
+.curiosita-img .gothic-img-container {
+    height: 500px;
+}
+
+/* Autori Section */
+.autori-card {
+    text-align: center;
+}
+
+.autori-card .gothic-img-container {
+    height: 350px;
+    margin-bottom: var(--spacing-sm);
+    /* Grayscale implementation for authors as seen in mockup */
+    filter: grayscale(100%) contrast(1.2);
+}
+
+.autori-card .gothic-img-container:hover {
+    filter: grayscale(0%) contrast(1) brightness(0.9);
+}
+
+/* Newsletter */
+.newsletter {
+    background-color: var(--color-section-alt);
+    text-align: center;
+    padding: var(--spacing-lg) 0;
+}
+
+.newsletter-form {
+    margin-top: var(--spacing-sm);
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    /* Connected inputs */
+}
+
+.newsletter-form input {
+    padding: 16px 24px;
+    font-family: var(--font-body);
+    font-size: 20px;
+    /* Readable input size */
+    border: 1px solid #ccc;
+    width: 60%;
+    max-width: 400px;
+    outline: none;
+}
+
+.newsletter-form button {
+    border-radius: 0;
+    padding: 12px 30px;
+}
+
+/* Footer */
+footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: var(--spacing-lg) 0;
+    margin-top: var(--spacing-xl);
+}
+
+.footer-logo {
+    font-family: var(--font-heading);
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.social-links {
+    margin-top: var(--spacing-sm);
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .grid-3,
+    .grid-2 {
+        grid-template-columns: 1fr;
+        /* Stack */
+    }
+
+    .gothic-img-container {
+        height: auto;
+        aspect-ratio: 2/3;
+        /* Maintain vertical aspect */
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .newsletter-form input,
+    .newsletter-form button {
+        width: 100%;
+        max-width: 300px;
+        border-radius: 5px;
+    }
+
+    header {
+        position: relative;
+        /* Unstick on mobile if needed, or keep sticky */
+    }
+
+    nav ul {
+        gap: 15px;
+    }
+}
